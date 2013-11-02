@@ -9,6 +9,9 @@ elif blah
 else
     pass
 
+while blocky
+    print "hahaa blocky"
+
 #if world.greet
 #    blah = "world". # hello
 #    1.5
