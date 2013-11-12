@@ -12,6 +12,9 @@ else
 while blocky
     print "hahaa blocky"
 
+return 2
+return
+
 #if world.greet
 #    blah = "world". # hello
 #    1.5

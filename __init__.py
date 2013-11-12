@@ -81,6 +81,11 @@ def parse_stmt(feed):
         stmt = AST('while', [parse_expr(feed)])
         stmt.extend(parse_block(feed))
         return stmt
+    elif feed.ignore('keyword', 'return'):
+        stmt = AST('return', [])
+        if match_term(feed):
+            stmt.append(parse_expr(feed))
+        return stmt
     else:
         expr = parse_expr(feed)
         if feed.match('indent'):
@@ -111,7 +116,7 @@ def parse_program(feed):
     return program
 
 
-keywords = set(('def', 'if', 'elif', 'else', 'pass', 'import', 'while'))
+keywords = set(('def', 'if', 'elif', 'else', 'pass', 'import', 'while', 'return'))
 symbols = set(('=', ':=', ':', '+', '-', '==', '!=', '!'))
 
 def parse_file(path):
